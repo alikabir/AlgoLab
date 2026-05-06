@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Replacement Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="page-replacement.css" />
+  </head>
+  <body class="page-replacement-page">
+    <header class="page-replacement-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>Page Replacement Visualizer</h1>
+        <p>
+          Simulate how operating systems decide which memory page to replace
+          when a new page request arrives.
+        </p>
+      </div>
+    </header>
+
+    <main class="page-replacement-shell">
+      <section class="control-panel" aria-label="Page replacement controls">
+        <h2>Simulation input</h2>
+
+        <label>
+          Reference string
+          <textarea id="reference-string" rows="4">7,0,1,2,0,3,0,4,2,3,0,3,2</textarea>
+        </label>
+
+        <label>
+          Number of frames
+          <input id="frame-count" type="number" min="1" step="1" value="3" />
+        </label>
+
+        <label>
+          Algorithm
+          <select id="algorithm-select">
+            <option value="fifo">FIFO</option>
+            <option value="lru">LRU</option>
+            <option value="optimal">Optimal</option>
+          </select>
+        </label>
+
+        <label>
+          Animation speed
+          <input id="speed-control" type="range" min="1" max="100" value="65" />
+        </label>
+
+        <div class="button-grid">
+          <button id="run-button" class="primary-button" type="button">Run Simulation</button>
+          <button id="example-button" class="secondary-button" type="button">Generate Example</button>
+          <button id="reset-button" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Enter a reference string and run the simulation.
+        </p>
+      </section>
+
+      <section class="stats-panel" aria-label="Simulation statistics">
+        <h2>Stats</h2>
+        <div class="stats-grid">
+          <p id="page-faults">Page faults: --</p>
+          <p id="page-hits">Page hits: --</p>
+          <p id="fault-ratio">Fault ratio: --</p>
+          <p id="hit-ratio">Hit ratio: --</p>
+        </div>
+      </section>
+
+      <section class="visual-panel" aria-label="Page replacement simulation">
+        <div class="panel-heading">
+          <h2>Simulation</h2>
+          <p id="current-request">Current request: none</p>
+        </div>
+
+        <div id="reference-strip" class="reference-strip" aria-label="Reference string steps"></div>
+        <div id="frames-view" class="frames-view" aria-label="Memory frames"></div>
+        <div id="step-result" class="step-result">Run a simulation to see each step.</div>
+      </section>
+
+      <section class="history-panel" aria-label="Simulation history">
+        <h2>Step history</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Page</th>
+                <th>Frames</th>
+                <th>Result</th>
+                <th>Replaced</th>
+              </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="page-replacement.js"></script>
+  </body>
+</html>

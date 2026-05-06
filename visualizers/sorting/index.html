@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Algorithm Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="sorting.css" />
+  </head>
+  <body class="sorting-page">
+    <header class="sorting-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>Sorting Algorithm Visualizer</h1>
+        <p>
+          Generate an array and prepare to watch sorting algorithms compare,
+          swap, and organize values step by step.
+        </p>
+      </div>
+    </header>
+
+    <main class="sorting-shell">
+      <section class="sorting-controls" aria-label="Sorting controls">
+        <div class="control-group">
+          <label for="algorithm-select">Algorithm</label>
+          <select id="algorithm-select">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="quick">Quick Sort</option>
+          </select>
+          <p id="algorithm-info" class="algorithm-info">
+            Bubble Sort compares neighbors repeatedly. Average time: O(n^2).
+          </p>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label-row">
+            <label for="array-size">Array size</label>
+            <span id="array-size-value">40</span>
+          </div>
+          <input id="array-size" type="range" min="10" max="90" value="40" />
+        </div>
+
+        <div class="control-group">
+          <div class="control-label-row">
+            <label for="animation-speed">Speed</label>
+            <span id="speed-value">70</span>
+          </div>
+          <input id="animation-speed" type="range" min="1" max="100" value="70" />
+        </div>
+
+        <div class="control-actions">
+          <button id="generate-array-button" class="secondary-button" type="button">
+            Generate New Array
+          </button>
+          <button id="start-sorting-button" class="primary-button" type="button">
+            Start Sorting
+          </button>
+          <button id="reset-button" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Generate an array or adjust the controls.
+        </p>
+      </section>
+
+      <section class="sorting-legend" aria-label="Bar legend">
+        <h2>Legend</h2>
+        <ul class="legend-list">
+          <li><span class="legend-swatch bar-normal"></span>Normal</li>
+          <li><span class="legend-swatch bar-compared"></span>Compared</li>
+          <li><span class="legend-swatch bar-swapped"></span>Swapped</li>
+          <li><span class="legend-swatch bar-pivot"></span>Pivot</li>
+          <li><span class="legend-swatch bar-sorted"></span>Sorted</li>
+        </ul>
+      </section>
+
+      <section class="array-section" aria-label="Array visualization">
+        <div id="array-container" class="array-container"></div>
+      </section>
+    </main>
+
+    <script src="sorting.js"></script>
+  </body>
+</html>

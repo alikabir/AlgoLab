@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph Algorithm Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="graph.css" />
+  </head>
+  <body class="graph-page">
+    <header class="graph-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>Graph Algorithm Visualizer</h1>
+        <p>
+          Build an unweighted graph, choose start and target nodes, then
+          visualize BFS, DFS, or a shortest path found with BFS.
+        </p>
+      </div>
+    </header>
+
+    <main class="graph-shell">
+      <section class="control-panel" aria-label="Graph controls">
+        <h2>Graph tools</h2>
+
+        <div class="button-grid">
+          <button class="tool-button primary-button is-active" type="button" data-tool="add-node">
+            Add Node
+          </button>
+          <button class="tool-button secondary-button" type="button" data-tool="add-edge">
+            Add Edge
+          </button>
+          <button class="tool-button secondary-button" type="button" data-tool="set-start">
+            Set Start Node
+          </button>
+          <button class="tool-button secondary-button" type="button" data-tool="set-target">
+            Set Target Node
+          </button>
+        </div>
+
+        <label>
+          Algorithm
+          <select id="algorithm-select">
+            <option value="bfs">BFS</option>
+            <option value="dfs">DFS</option>
+            <option value="shortest-path">Shortest Path using BFS</option>
+          </select>
+        </label>
+
+        <div class="button-grid">
+          <button id="visualize-button" class="primary-button" type="button">Visualize</button>
+          <button id="example-button" class="secondary-button" type="button">Generate Example Graph</button>
+          <button id="clear-button" class="secondary-button" type="button">Clear Graph</button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Click the graph area to add nodes.
+        </p>
+      </section>
+
+      <section class="info-panel" aria-label="Graph data">
+        <h2>Graph data</h2>
+        <p id="graph-summary">Nodes: 0 | Edges: 0</p>
+        <p id="start-target-summary">Start: none | Target: none</p>
+        <p id="result-output">No algorithm run yet.</p>
+      </section>
+
+      <section class="visual-panel" aria-label="Graph visualization">
+        <div class="panel-heading">
+          <h2>Graph canvas</h2>
+          <p>Add nodes by clicking empty space. Select nodes to connect or mark them.</p>
+        </div>
+
+        <svg id="graph-canvas" class="graph-canvas" role="img" aria-label="Interactive graph canvas"></svg>
+      </section>
+    </main>
+
+    <script src="graph.js"></script>
+  </body>
+</html>

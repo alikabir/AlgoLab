@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search Tree Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="tree.css" />
+  </head>
+  <body class="tree-page">
+    <header class="tree-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>Binary Search Tree Visualizer</h1>
+        <p>
+          Insert, search, delete, and traverse values while watching how a
+          binary search tree organizes smaller values left and larger values right.
+        </p>
+      </div>
+    </header>
+
+    <main class="tree-shell">
+      <section class="control-panel" aria-label="Tree controls">
+        <h2>Tree actions</h2>
+
+        <label>
+          Number
+          <input id="value-input" type="number" step="1" placeholder="42" />
+        </label>
+
+        <div class="button-grid">
+          <button id="insert-button" class="primary-button" type="button">Insert</button>
+          <button id="search-button" class="secondary-button" type="button">Search</button>
+          <button id="delete-button" class="secondary-button" type="button">Delete</button>
+          <button id="example-button" class="secondary-button" type="button">Generate Example Tree</button>
+          <button id="reset-button" class="secondary-button" type="button">Reset Tree</button>
+        </div>
+
+        <h2>Traversals</h2>
+        <div class="button-grid">
+          <button class="traversal-button secondary-button" type="button" data-traversal="inorder">
+            Inorder
+          </button>
+          <button class="traversal-button secondary-button" type="button" data-traversal="preorder">
+            Preorder
+          </button>
+          <button class="traversal-button secondary-button" type="button" data-traversal="postorder">
+            Postorder
+          </button>
+          <button class="traversal-button secondary-button" type="button" data-traversal="levelorder">
+            Level Order
+          </button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Insert a value or generate an example tree.
+        </p>
+      </section>
+
+      <section class="result-panel" aria-label="Traversal output">
+        <h2>Traversal result</h2>
+        <p id="traversal-result">No traversal run yet.</p>
+      </section>
+
+      <section class="visual-panel" aria-label="Tree visualization">
+        <div class="panel-heading">
+          <h2>Tree</h2>
+          <p>Nodes are highlighted during search and traversal.</p>
+        </div>
+
+        <div id="tree-canvas" class="tree-canvas">
+          <svg id="edge-layer" class="edge-layer" aria-hidden="true"></svg>
+          <div id="node-layer" class="node-layer"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="tree.js"></script>
+  </body>
+</html>

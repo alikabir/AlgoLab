@@ -1,0 +1,277 @@
+.pathfinding-page {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(53, 208, 186, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 140, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(53, 208, 186, 0.08), transparent 38%),
+    var(--color-page);
+  background-size: 44px 44px, 44px 44px, auto, auto;
+}
+
+.pathfinding-header,
+.pathfinding-shell {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.pathfinding-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 22px 0 28px;
+}
+
+.pathfinding-header h1 {
+  margin-bottom: 12px;
+  font-size: 4rem;
+}
+
+.pathfinding-header p {
+  max-width: 760px;
+  color: var(--color-muted);
+}
+
+.pathfinding-shell {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.control-panel,
+.legend-panel,
+.grid-section {
+  border: 1px solid rgba(157, 170, 189, 0.18);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent),
+    var(--color-surface);
+  box-shadow: 0 1px 0 rgba(245, 247, 251, 0.04);
+}
+
+.control-panel {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.control-group {
+  display: grid;
+  gap: 10px;
+}
+
+.control-group h2,
+.legend-panel h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.control-group label {
+  color: var(--color-ink);
+  font-weight: 800;
+}
+
+.tool-buttons {
+  display: grid;
+  gap: 8px;
+}
+
+.tool-button,
+.primary-button,
+.secondary-button,
+.control-group select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(157, 170, 189, 0.22);
+  border-radius: var(--radius);
+  background: rgba(7, 11, 18, 0.38);
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.tool-button,
+.primary-button,
+.secondary-button {
+  cursor: pointer;
+  font-weight: 800;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.tool-button:hover,
+.secondary-button:hover {
+  border-color: rgba(53, 208, 186, 0.45);
+  background: rgba(53, 208, 186, 0.1);
+}
+
+.tool-button.is-active {
+  border-color: rgba(53, 208, 186, 0.68);
+  background: rgba(53, 208, 186, 0.18);
+  color: #d6fff7;
+}
+
+.control-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.primary-button {
+  border-color: rgba(79, 140, 255, 0.38);
+  background: var(--color-primary);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tool-button:disabled,
+.secondary-button:disabled,
+.control-group select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.secondary-button {
+  background: rgba(247, 185, 85, 0.1);
+}
+
+.status-message {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.algorithm-info {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgba(53, 208, 186, 0.18);
+  border-radius: var(--radius);
+  background: rgba(53, 208, 186, 0.08);
+  color: #c7f8ef;
+  font-size: 0.92rem;
+}
+
+.legend-panel {
+  grid-column: 1;
+  padding: 20px;
+}
+
+.legend-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  color: var(--color-muted);
+  list-style: none;
+}
+
+.legend-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(157, 170, 189, 0.35);
+  border-radius: 4px;
+}
+
+.grid-section {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.pathfinding-grid {
+  display: grid;
+  gap: 2px;
+  min-width: 780px;
+  user-select: none;
+}
+
+.grid-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(157, 170, 189, 0.12);
+  border-radius: 4px;
+  background: #101722;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.grid-cell:hover {
+  border-color: rgba(53, 208, 186, 0.55);
+  transform: scale(1.05);
+}
+
+.cell-empty {
+  background: #101722;
+}
+
+.cell-start {
+  background: #35d0ba;
+}
+
+.cell-end {
+  background: #f25f5c;
+}
+
+.cell-wall {
+  background: #d6dde8;
+}
+
+.cell-visited {
+  background: #4f8cff;
+}
+
+.cell-path {
+  background: #f7b955;
+}
+
+@media (max-width: 920px) {
+  .pathfinding-header,
+  .pathfinding-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-section,
+  .legend-panel {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .pathfinding-header h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .pathfinding-page {
+    padding: 18px;
+  }
+
+  .pathfinding-header {
+    gap: 18px;
+  }
+
+  .pathfinding-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .pathfinding-grid {
+    min-width: 660px;
+  }
+}

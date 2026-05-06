@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPU Scheduling Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="scheduling.css" />
+  </head>
+  <body class="scheduling-page">
+    <header class="scheduling-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>CPU Scheduling Visualizer</h1>
+        <p>
+          Add processes, choose a scheduling strategy, and compare completion,
+          turnaround, and waiting times through an animated Gantt chart.
+        </p>
+      </div>
+    </header>
+
+    <main class="scheduling-shell">
+      <section class="input-panel" aria-label="Process inputs and scheduling controls">
+        <h2>Process input</h2>
+
+        <div class="process-form">
+          <label>
+            Process ID
+            <input id="process-id" type="text" placeholder="P1" />
+          </label>
+
+          <label>
+            Arrival Time
+            <input id="arrival-time" type="number" min="0" step="1" value="0" />
+          </label>
+
+          <label>
+            Burst Time
+            <input id="burst-time" type="number" min="1" step="1" value="4" />
+          </label>
+
+          <label>
+            Priority
+            <input id="priority" type="number" min="1" step="1" value="1" />
+          </label>
+        </div>
+
+        <div class="control-group">
+          <label for="algorithm-select">Algorithm</label>
+          <select id="algorithm-select">
+            <option value="fcfs">FCFS</option>
+            <option value="sjf">SJF</option>
+            <option value="round-robin">Round Robin</option>
+            <option value="priority">Priority Scheduling</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="quantum">Quantum for Round Robin</label>
+          <input id="quantum" type="number" min="1" step="1" value="2" />
+        </div>
+
+        <div class="button-grid">
+          <button id="add-process-button" class="secondary-button" type="button">Add Process</button>
+          <button id="example-button" class="secondary-button" type="button">Generate Example</button>
+          <button id="run-button" class="primary-button" type="button">Run Simulation</button>
+          <button id="reset-button" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Add processes or generate an example to begin.
+        </p>
+      </section>
+
+      <section class="process-panel" aria-label="Process table">
+        <div class="panel-heading">
+          <h2>Processes</h2>
+          <p>Lower priority numbers run first in Priority Scheduling.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>PID</th>
+                <th>Arrival</th>
+                <th>Burst</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody id="process-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="output-panel" aria-label="Simulation output">
+        <div class="panel-heading">
+          <h2>Simulation</h2>
+          <p id="current-process">Current process: none</p>
+        </div>
+
+        <div id="gantt-chart" class="gantt-chart" aria-label="Gantt chart"></div>
+
+        <div class="metrics-summary">
+          <p id="average-waiting-time">Average waiting time: --</p>
+          <p id="average-turnaround-time">Average turnaround time: --</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>PID</th>
+                <th>Completion</th>
+                <th>Turnaround</th>
+                <th>Waiting</th>
+              </tr>
+            </thead>
+            <tbody id="metrics-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="scheduling.js"></script>
+  </body>
+</html>

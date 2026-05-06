@@ -1,0 +1,304 @@
+.scheduling-page {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(53, 208, 186, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 140, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(247, 185, 85, 0.08), transparent 40%),
+    var(--color-page);
+  background-size: 44px 44px, 44px 44px, auto, auto;
+}
+
+.scheduling-header,
+.scheduling-shell {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.scheduling-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 22px 0 28px;
+}
+
+.scheduling-header h1 {
+  margin-bottom: 12px;
+  font-size: 4rem;
+}
+
+.scheduling-header p {
+  max-width: 780px;
+  color: var(--color-muted);
+}
+
+.scheduling-shell {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.input-panel,
+.process-panel,
+.output-panel {
+  border: 1px solid rgba(157, 170, 189, 0.18);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent),
+    var(--color-surface);
+  box-shadow: 0 1px 0 rgba(245, 247, 251, 0.04);
+}
+
+.input-panel {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+}
+
+.process-panel {
+  padding: 20px;
+}
+
+.output-panel {
+  grid-column: 2;
+  padding: 20px;
+}
+
+.input-panel h2,
+.panel-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.panel-heading p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.process-form,
+.control-group {
+  display: grid;
+  gap: 10px;
+}
+
+.process-form label,
+.control-group label {
+  display: grid;
+  gap: 7px;
+  color: var(--color-ink);
+  font-weight: 800;
+}
+
+.process-form input,
+.control-group input,
+.control-group select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(157, 170, 189, 0.22);
+  border-radius: var(--radius);
+  background: rgba(7, 11, 18, 0.38);
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.process-form input,
+.control-group input {
+  padding: 0 12px;
+}
+
+.control-group select {
+  padding: 0 10px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 44px;
+  border: 1px solid rgba(157, 170, 189, 0.22);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.primary-button {
+  border-color: rgba(79, 140, 255, 0.38);
+  background: var(--color-primary);
+}
+
+.secondary-button {
+  background: rgba(247, 185, 85, 0.1);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  border-color: rgba(53, 208, 186, 0.45);
+  background: rgba(53, 208, 186, 0.12);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.process-form input:disabled,
+.control-group input:disabled,
+.control-group select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.status-message {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(157, 170, 189, 0.14);
+  text-align: left;
+}
+
+th {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+td {
+  color: var(--color-ink);
+}
+
+.empty-row td {
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.gantt-chart {
+  display: flex;
+  min-height: 110px;
+  align-items: stretch;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px;
+  border: 1px solid rgba(157, 170, 189, 0.14);
+  border-radius: var(--radius);
+  background: rgba(7, 11, 18, 0.34);
+}
+
+.gantt-block {
+  display: grid;
+  min-width: 84px;
+  align-content: center;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid rgba(79, 140, 255, 0.28);
+  border-radius: var(--radius);
+  background: rgba(79, 140, 255, 0.18);
+  color: var(--color-ink);
+  text-align: center;
+}
+
+.gantt-block.is-idle {
+  border-color: rgba(157, 170, 189, 0.2);
+  background: rgba(157, 170, 189, 0.1);
+}
+
+.gantt-process {
+  font-weight: 900;
+}
+
+.gantt-time {
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+.metrics-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.metrics-summary p {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(53, 208, 186, 0.18);
+  border-radius: var(--radius);
+  background: rgba(53, 208, 186, 0.08);
+  color: #c7f8ef;
+  font-weight: 800;
+}
+
+@media (max-width: 960px) {
+  .scheduling-header,
+  .scheduling-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .output-panel {
+    grid-column: auto;
+  }
+
+  .scheduling-header h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .scheduling-page {
+    padding: 18px;
+  }
+
+  .scheduling-header {
+    gap: 18px;
+  }
+
+  .scheduling-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .panel-heading,
+  .metrics-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    display: grid;
+  }
+
+  .panel-heading p {
+    text-align: left;
+  }
+}

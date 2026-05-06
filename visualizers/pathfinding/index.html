@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pathfinding Visualizer | AlgoLab</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="pathfinding.css" />
+  </head>
+  <body class="pathfinding-page">
+    <header class="pathfinding-header">
+      <a class="back-link" href="../../index.html">Back to Home</a>
+      <div>
+        <p class="eyebrow">AlgoLab visualizer</p>
+        <h1>Pathfinding Visualizer</h1>
+        <p>
+          Draw walls, set start and end nodes, then visualize how pathfinding
+          algorithms search for a route through the grid.
+        </p>
+      </div>
+    </header>
+
+    <main class="pathfinding-shell">
+      <section class="control-panel" aria-label="Pathfinding controls">
+        <div class="control-group">
+          <h2>Select tool</h2>
+          <div class="tool-buttons" role="group" aria-label="Grid editing tools">
+            <button class="tool-button" type="button" data-tool="start">Start Node</button>
+            <button class="tool-button" type="button" data-tool="end">End Node</button>
+            <button class="tool-button is-active" type="button" data-tool="wall">Draw Walls</button>
+            <button class="tool-button" type="button" data-tool="erase">Erase</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="algorithm-select">Algorithm</label>
+          <select id="algorithm-select">
+            <option value="bfs">BFS</option>
+            <option value="dijkstra">Dijkstra</option>
+            <option value="astar">A*</option>
+          </select>
+          <p id="algorithm-info" class="algorithm-info">
+            BFS explores level by level.
+          </p>
+        </div>
+
+        <div class="control-actions">
+          <button id="clear-grid-button" class="secondary-button" type="button">Clear Grid</button>
+          <button id="reset-board-button" class="secondary-button" type="button">Reset Board</button>
+          <button id="visualize-button" class="primary-button" type="button">
+            Visualize
+          </button>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite">
+          Draw walls or move the start and end nodes.
+        </p>
+      </section>
+
+      <section class="legend-panel" aria-label="Grid legend">
+        <h2>Legend</h2>
+        <ul class="legend-list">
+          <li><span class="legend-swatch cell-empty"></span>Empty</li>
+          <li><span class="legend-swatch cell-start"></span>Start</li>
+          <li><span class="legend-swatch cell-end"></span>End</li>
+          <li><span class="legend-swatch cell-wall"></span>Wall</li>
+          <li><span class="legend-swatch cell-visited"></span>Visited</li>
+          <li><span class="legend-swatch cell-path"></span>Shortest Path</li>
+        </ul>
+      </section>
+
+      <section class="grid-section" aria-label="Pathfinding grid">
+        <div id="pathfinding-grid" class="pathfinding-grid" role="grid" aria-label="20 row by 30 column grid"></div>
+      </section>
+    </main>
+
+    <script src="pathfinding.js"></script>
+  </body>
+</html>
