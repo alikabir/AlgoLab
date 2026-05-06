@@ -2,14 +2,6 @@
 
 AlgoLab is a portfolio-ready vanilla web app for exploring algorithms, data structures, operating systems, and database design concepts through interactive visualizers.
 
-## Live Demo
-
-Coming soon.
-
-## Screenshots
-
-Screenshots coming soon.
-
 ## Description
 
 The project is built with plain HTML, CSS, and JavaScript. It does not use frameworks, external libraries, npm packages, or build tooling. Each visualizer is intentionally organized as a small, readable module so the implementation can be studied by beginners.
